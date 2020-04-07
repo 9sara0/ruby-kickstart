@@ -9,4 +9,5 @@
 
 def ten_twenty(n)
   # your code goes here
+  return n.odd? ? 20 : 10
 end
