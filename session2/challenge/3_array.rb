@@ -7,5 +7,8 @@
 
 class String
   def every_other_char
+    to_return = ""
+    length.times { |index| to_return << self[index] if index.even? }
+    to_return
   end
 end
