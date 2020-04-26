@@ -9,7 +9,5 @@
 # This time you will have to define the method, it's called: get_squares
 
 def get_squares(arr)
-  to_return = []
-  arr.each { |num| to_return << num if arr.include?(num**2)}
-  to_return.sort!
+  arr.select { |num| num if arr.include? num**2 }.sort
 end
