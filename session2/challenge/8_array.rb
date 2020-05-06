@@ -7,8 +7,8 @@
 # got_three? [1, 2, 1, 1]     # => false
 
 def got_three?(arr)
-  arr.each do |e|
-    return true if arr.join(" ") =~ /(#{e} ){3}|(#{e} ){2}#{e}$/
+  arr.each_cons 3 do |a, b, c|
+    return true if a == b && b == c
   end
   false
 end
