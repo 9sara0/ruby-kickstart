@@ -20,25 +20,28 @@
 # Add any additional methods you find helpful.
 
 class BeerSong
-  attr_reader "num_of_bottles"
+  attr_reader "bottles"
 
-  def initialize(num_of_bottles)
-    @num_of_bottles = num_of_bottles
-    @num_of_bottles = 0 if num_of_bottles < 0
-    @num_of_bottles = 99 if num_of_bottles > 99
+  def initialize(bottles)
+    @bottles = bottles
+    @bottles = 0 if bottles < 0
+    @bottles = 99 if bottles > 99
   end
 
   def print_song
-    bottles_count = @num_of_bottles
-    bottle_bottles = bottles_count == 1 ? "bottle" : "bottles"
-    while bottles_count > 0
-      puts "#{(numbers_to_words(bottles_count)).capitalize} #{bottle_bottles} of beer on the wall,"
-      puts "#{(numbers_to_words(bottles_count)).capitalize} #{bottle_bottles} of beer,"
-      puts "Take one down, pass it around,"
-      bottles_count -= 1
-      bottle_bottles = bottles_count == 1 ? "bottle" : "bottles"
-      puts "#{(numbers_to_words(bottles_count)).capitalize} #{bottle_bottles} of beer on the wall."
+    @bottles.downto 1 do |i|
+      print print_line i
     end
+  end
+
+  def print_line(i)
+    bottle_bottles = i == 1 ? "bottle" : "bottles"
+      puts "#{(numbers_to_words(i)).capitalize} #{bottle_bottles} of beer on the wall,"
+      puts "#{(numbers_to_words(i)).capitalize} #{bottle_bottles} of beer,"
+      puts "Take one down, pass it around,"
+      i -= 1
+      bottle_bottles = i == 1 ? "bottle" : "bottles"
+      puts "#{(numbers_to_words(i)).capitalize} #{bottle_bottles} of beer on the wall."
   end
 
   def numbers_to_words(num)
@@ -141,14 +144,14 @@ end
 
 
 song  = BeerSong.new(31)
-# puts song.num_of_bottles
-# puts song.numbers_to_words(song.num_of_bottles)
+# puts song.bottles
+# puts song.numbers_to_words(song.bottles)
 song.print_song
 
 # song2  = BeerSong.new(90)
-# puts song2.num_of_bottles
-# puts song2.numbers_to_words(song2.num_of_bottles)
+# puts song2.bottles
+# puts song2.numbers_to_words(song2.bottles)
 #
 # song3  = BeerSong.new(30)
-# puts song3.num_of_bottles
-# puts song3.numbers_to_words(song3.num_of_bottles)
+# puts song3.bottles
+# puts song3.numbers_to_words(song3.bottles)
